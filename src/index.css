@@ -4,3 +4,10 @@ body{
     background-color:#f7f7f7;
     display: absolute;
 }
+
+.MENSAJE_DE_ALERTA{
+    position: absolute;
+    z-index: 150;
+    padding-top: 4rem;
+    width: 100%;
+  }

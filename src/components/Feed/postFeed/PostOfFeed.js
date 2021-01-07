@@ -114,7 +114,7 @@ function ComentariosDelPost({ comentarioss }) {
     //1.- Imprimiendo los últimos tres comentarios
     let numComents = comentarioss.length;
     let comentarioss2;
-    //1.2.- Inviriendo de comentarios para mostrarlos en el orden deseado
+    //1.2.- Invirtiendo de comentarios para mostrarlos en el orden deseado
     if (numComents < 3) {
         comentarioss2 = comentarioss.slice(comentarioss.length - numComents);
     } else {

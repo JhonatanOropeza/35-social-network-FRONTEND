@@ -40,18 +40,19 @@ export default function LoadImage({ history, mostrarError }) {
 
     async function handleSubmit(evento) {
         evento.preventDefault();
-
         //1.- En caso de que el post este cargando, evitamos la acción dle boton
         if (enviandoPost) {
             return;
         }
         //2.- Si la imagen esta subiendo, mostramos mensaje
         if (subiendoImagen) {
-            mostrarError('No se ha terminado de cargar la imagen')
+            mostrarError('No se ha terminado de cargar la imagen');
+            return;
         }
         //3.- Si no hay imagen, invitamos a que se cargue
         if (!imagenURL) {
-            mostrarError('Primero debes cargar una imagen')
+            mostrarError('Primero debes cargar una imagen');
+            return;
         }
 
         try {
