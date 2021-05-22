@@ -5,7 +5,7 @@ import stringToColor from 'string-to-color';
 import LoadingDos from './../../Loading/loadingDos'
 
 //---------------------------- 1.- CSS Style && .env ----------------------------------
-import './Avatar.css'
+import './Avatar.css';
 //---------------------------- 2.- Some functions -------------------------------------
 //---------------------------- 3.- PRINCIAPAL COMPONENT -------------------------------
 export default function Avatar({

@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCameraRetro, faCompass, faUserCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 import './general.css'
+import { useUsuario } from '../0_Context/usuario-context';
 
-export default function Navbar({ usuario, logout }) {
+export default function Navbar() {
+    const { usuario, logout } = useUsuario();
     return (
         <div >
             <nav

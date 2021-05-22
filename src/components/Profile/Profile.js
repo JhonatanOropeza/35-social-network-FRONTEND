@@ -10,6 +10,7 @@ import Grid from '../Explore/Grid';
 import toggleSeguimiento from '../../helpers/amistad_helpers'
 
 //------------------- 1.- CSS Style && .env ---------------
+import {useUsuario} from '../0_Context/usuario-context';
 const baseURL = process.env.REACT_APP_RUTA_PRINCIPAL;
 
 const styleForProfile = {
@@ -18,7 +19,8 @@ const styleForProfile = {
 }
 //------------------- 2.- Some functions ------------------
 //------------------- 3.- PRINCIAPAL COMPONENT ------------
-export default function Profile({ mostrarError, usuario, match, logout }) {
+export default function Profile({ mostrarError, match }) {
+    const {usuario, logout} =useUsuario();
     const idUser = match.params.usuario;
     const [loading, setLoading] = useState(true);
     const [userOfProfile, setUserOfProfile] = useState(null);
@@ -33,8 +35,8 @@ export default function Profile({ mostrarError, usuario, match, logout }) {
                 setLoading(true);
                 //Petición para traer datos del usuario
                 const { data: user } = await Axios.get(baseURL + `/inside/getUserForProfile/${idUser}`);
-                const { data: posts } = await Axios.get(baseURL + `/inside/getPostsOfOneUser/${user._id}`);
                 //Petición para traer posts del usuario encontrado
+                const { data: posts } = await Axios.get(baseURL + `/inside/getPostsOfOneUser/${user._id}`);
                 setUserOfProfile(user);
                 setPosts(posts);
                 setLoading(false);
@@ -61,7 +63,6 @@ export default function Profile({ mostrarError, usuario, match, logout }) {
             const file = event.target.files[0];
             const formData = new FormData();
             formData.append('imageProfile', file);
-            console.log(userOfProfile);
             const { data } = await Axios.post(baseURL + '/inside/postImageProfile',
                 formData,
                 { headers: { "Content-type": "multipart/form-data" } }

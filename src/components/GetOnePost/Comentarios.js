@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 //---------------------------- 1.- CSS Style && .env ----------------------------------
-import './estilosGetOnePost.css'
+import './estilosGetOnePost.css';
+import { useUsuario } from '../0_Context/usuario-context';
 //---------------------------- 2.- Some functions -------------------------------------
 //---------------------------- 3.- PRINCIAPAL COMPONENT -------------------------------
-export default function Comments({ comentarioss, texto, idUsuario, usuario }) {
+export default function Comments({ comentarioss, texto, idUsuario }) {
+    const { usuario } = useUsuario();
     return (
         <ul className="comentarios__ul mb-0">
             <li style={{ listStyleType: 'none' }}>{/** Remove signo o punto al inicio */}
@@ -27,7 +29,7 @@ export default function Comments({ comentarioss, texto, idUsuario, usuario }) {
                     </li>
                 );
             })}
-            </ul>
+        </ul>
     );
 };
 //---------------------------- 3.1- Functions----------------------------------

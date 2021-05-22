@@ -33,8 +33,9 @@ export default function LoadImage({ history, mostrarError }) {
             setSubiendoImagen(false);
         } catch (error) {
             setSubiendoImagen(false);
-            mostrarError.mostrarError(error.response.data.message);
-            console.log(error.response.data.message)
+            console.log(error.response.data.message);
+            mostrarError(error.response.data.message);
+            //console.log(error.response.data.message)
         }
     }
 

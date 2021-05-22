@@ -13,10 +13,12 @@ import Main from '../General/Main'
 import { toggleComentario, toggleLike } from '../../helpers/post-helpers'
 //------------------- 1.- CSS Style && .env ---------------
 import './estilosGetOnePost.css'
+import { useUsuario } from '../0_Context/usuario-context';
 const baseURL = process.env.REACT_APP_RUTA_PRINCIPAL;
 //------------------- 2.- Some functions ------------------
 //------------------- 3.- PRINCIAPAL COMPONENT ------------
-export default function GetOnePost({ mostrarError, match, usuario }) {
+export default function GetOnePost({ mostrarError, match }) {
+    const { usuario } = useUsuario();
     const idUsuario = match.params.id;
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -92,10 +94,10 @@ export default function GetOnePost({ mostrarError, match, usuario }) {
 }
 //------------------- 4 Other components ------------------
 function Post({
+    usuario,
     comentarioss,
     _id,
     url,
-    usuario,
     estaLike,
     //Props that don´t belong to the post
     texto,
@@ -125,11 +127,9 @@ function Post({
                             tipoDeAvatar={2}
                         />
                         <Comentarios
-                            usuario={usuario}
                             comentarioss={comentarioss}
                             texto={texto}
                             idUsuario={_id}
-                            usuarioDelComentario={usuario}
                         />
                         <BotonLike
                             onSubmitLike={onSubmitLike}

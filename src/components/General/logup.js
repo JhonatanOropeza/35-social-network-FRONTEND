@@ -4,10 +4,10 @@ import imageSign from '../../images/newSignup.png';
 import { Link } from 'react-router-dom';
 
 import Main from './Main';
+import {useUsuario} from '../0_Context/usuario-context';
 
-//const baseURL = process.env.REACT_APP_RUTA_PRINCIPAL;
-
-export default function Login({ logup, mostrarError }) {
+export default function Login({ mostrarError }) {
+    const {logup} = useUsuario();
     const [datosLogup, setDatosLogup] = useState(
         {
             nombre: '',

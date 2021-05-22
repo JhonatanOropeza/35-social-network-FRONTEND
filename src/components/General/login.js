@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 
 import Main from './Main';
 import './general.css';
-//const baseURL = process.env.REACT_APP_RUTA_PRINCIPAL;
+import { useUsuario } from '../0_Context/usuario-context';
 
-export default function Login({ login, mostrarError }) {
+export default function Login({ mostrarError }) {
+    const { login } = useUsuario();
     const [datosLogin, setDatosLogin] = useState(
         {
             correo: '',
@@ -44,9 +45,9 @@ export default function Login({ login, mostrarError }) {
                 <div className="row weight__form">
                     {/** IMAGEN */}
                     <div className="col-sm-6 weight__log-img ">
-                        <img src={imageSign} className="img-fluid weight__log-img-src" alt=""/>
+                        <img src={imageSign} className="img-fluid weight__log-img-src" alt="" />
                     </div>
-                     {/** FORMULARIO */}
+                    {/** FORMULARIO */}
                     <div className="col-sm-6 weight__log-form text-center">
                         <div className="container mt-2 mb-2">
                             <h3>ShareImage</h3>
