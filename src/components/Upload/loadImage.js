@@ -64,7 +64,7 @@ export default function LoadImage({ history, mostrarError }) {
             }
             await Axios.post(baseURL + '/inside/postImageWithData', body)
             setEnviandoPost(false);
-            history.push('/')
+            history.push('/');
         } catch (error) {
             setEnviandoPost(false);
             mostrarError.mostrarError(error.response.data.message);
